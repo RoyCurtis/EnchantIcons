@@ -1,5 +1,4 @@
-This is a template (or skeleton or boilerplate) repository for Minecraft Forge modding projects.
-
+[![Build Status](http://ci.haun.guru/buildStatus/icon?job=EnchantIcons)](http://ci.haun.guru/job/EnchantIcons/)
 ## Requirements
 * [Gradle installation with gradle binary in PATH](http://www.gradle.org/installation)
 
