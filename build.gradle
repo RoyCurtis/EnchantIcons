@@ -59,7 +59,7 @@ processResources
     }
 }
 
-task debugClient(type: JavaExec) {
+task debugClient(type: JavaExec, overwrite: true) {
     classpath = sourceSets.main.runtimeClasspath
     main = "net.minecraft.launchwrapper.Launch"
     args("--version", "1.7",
