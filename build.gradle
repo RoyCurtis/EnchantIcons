@@ -58,19 +58,3 @@ processResources
         exclude 'mcmod.info'
     }
 }
-
-task debugClient(type: JavaExec, overwrite: true) {
-    classpath = sourceSets.main.runtimeClasspath
-    main = "net.minecraft.launchwrapper.Launch"
-    args("--version", "1.7",
-        "--tweakClass", "cpw.mods.fml.common.launcher.FMLTweaker",
-        "--accessToken", "FML",
-        "--username", "ForgeDevName")
-    jvmArgs("-Xincgc",
-        "-Xmx1024M",
-        "-Xms1024M",
-        "-Djava.library.path=${project.buildDir}/natives",
-        "-Dfml.ignoreInvalidMinecraftCertificates=true")
-    workingDir("eclipse")
-    debug = true
-}
