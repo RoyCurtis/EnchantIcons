@@ -10,4 +10,7 @@ javadocs/
 .idea/
 classes/
 *.iml
+*.ipr
+*.iws
 output/
+/out/

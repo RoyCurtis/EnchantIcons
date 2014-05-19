@@ -16,40 +16,6 @@ public class EnchantIconsRenderer implements IItemRenderer
     static StringTranslate translator = new StringTranslate();
     static RenderItem      renderItem = new RenderItem();
 
-    static String[] tableOfElements = new String[64];
-
-    static
-    {
-        tableOfElements[0] = "Pr";
-        tableOfElements[1] = "FPr";
-        tableOfElements[2] = "FF";
-        tableOfElements[3] = "BPr";
-        tableOfElements[4] = "PPr";
-        tableOfElements[5] = "Rsp";
-        tableOfElements[6] = "AAf";
-        tableOfElements[7] = "Th";
-
-        tableOfElements[16] = "Sh";
-        tableOfElements[17] = "Sm";
-        tableOfElements[18] = "BoA";
-        tableOfElements[19] = "Kn";
-        tableOfElements[20] = "FA";
-        tableOfElements[21] = "Lt";
-
-        tableOfElements[32] = "Eff";
-        tableOfElements[33] = "ST";
-        tableOfElements[34] = "Ub";
-        tableOfElements[35] = "Ft";
-
-        tableOfElements[48] = "Po";
-        tableOfElements[49] = "Pu";
-        tableOfElements[50] = "Fl";
-        tableOfElements[51] = "Inf";
-
-        tableOfElements[61] = "Sea";
-        tableOfElements[62] = "Lre";
-    }
-
     @Override
     public boolean handleRenderType(ItemStack itemStack, ItemRenderType itemRenderType)
     {
@@ -80,7 +46,7 @@ public class EnchantIconsRenderer implements IItemRenderer
 
         Enchantment enchant = Enchantment.enchantmentsList[id];
 
-        String ident = tableOfElements[id];
+        String ident = EnchantIcons.config.nameMap.get(id);
         String label = enchants.tagCount() > 1
                 ? "*"
                 : translator.translateKey("enchantment.level." + level);
