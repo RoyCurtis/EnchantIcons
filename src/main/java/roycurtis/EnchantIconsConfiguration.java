@@ -1,6 +1,7 @@
 package roycurtis;
 
 import net.minecraftforge.common.config.Configuration;
+import sun.misc.Regexp;
 
 import java.io.File;
 import java.util.HashMap;
@@ -55,7 +56,7 @@ public class EnchantIconsConfiguration extends Configuration {
 
         String[] fooArray;
         for(String s : enchString){
-            fooArray = s.split("|");
+            fooArray = s.split("\\|");
             Integer id = Integer.parseInt(fooArray[0]);
             if(id == null) continue;
             nameMap.put(id,fooArray[1]);
