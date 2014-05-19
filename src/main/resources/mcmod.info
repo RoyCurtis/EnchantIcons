@@ -1,6 +1,6 @@
 [
 {
-  "modid": "enchanticons",
+  "modid": "${modid}",
   "name": "Enchant Icons",
   "description": "Custom renderer for enchanted book items.",
   "version": "${version}",
