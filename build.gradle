@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'forge'
 
 modid   = "enchanticons"
-version = "0.0.2"
+version = "0.1.0"
 group   = "roycurtis.EnchantIcons"
 
 archivesBaseName = modid
