@@ -1,7 +1,7 @@
 package roycurtis;
 
-import net.minecraftforge.common.config.Configuration;
-import sun.misc.Regexp;
+
+import net.minecraftforge.common.Configuration;
 
 import java.io.File;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Map;
  */
 
 
-public class EnchantIconsConfiguration extends Configuration {
+public class EnchantIconsConfiguration extends Configuration{
 
     public Map<Integer,String> nameMap;
 

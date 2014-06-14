@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemEnchantedBook;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.StringTranslate;
 import net.minecraftforge.client.IItemRenderer;
@@ -41,8 +42,8 @@ public class EnchantIconsRenderer implements IItemRenderer
         if (enchants == null || enchants.tagCount() == 0)
             return;
 
-        int id    = enchants.getCompoundTagAt(0).getShort("id");
-        int level = enchants.getCompoundTagAt(0).getShort("lvl");
+        int id    = ((NBTTagCompound)enchants.tagAt(0)).getShort("id");
+        int level = ((NBTTagCompound)enchants.tagAt(0)).getShort("lvl");
 
         Enchantment enchant = Enchantment.enchantmentsList[id];
 
