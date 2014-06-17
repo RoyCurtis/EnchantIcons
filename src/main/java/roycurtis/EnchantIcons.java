@@ -26,21 +26,15 @@ public class EnchantIcons
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        Logger  = LogManager.getFormatterLogger(MODID);
-        BaseDir = new File(event.getModConfigurationDirectory(), MODID);
+        Logger = event.getModLog();
         config = new EnchantIconsConfiguration(event.getSuggestedConfigurationFile());
 
 
-        if ( !BaseDir.exists() )
-            BaseDir.mkdir();
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        MinecraftForge.EVENT_BUS.register(this);
-        FMLCommonHandler.instance().bus().register(this);
-        Logger.debug("Registered events");
         MinecraftForgeClient.registerItemRenderer( Items.enchanted_book, new EnchantIconsRenderer() );
         Logger.info("Loaded version %s", VERSION);
     }
