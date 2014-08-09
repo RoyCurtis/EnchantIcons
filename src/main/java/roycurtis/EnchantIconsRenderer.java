@@ -1,6 +1,7 @@
 package roycurtis;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.ItemEnchantedBook;
@@ -39,6 +40,8 @@ public class EnchantIconsRenderer implements IItemRenderer
         renderItem.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), itemStack, 0, 16, true);
         GL11.glScalef(2f, 2f, 2f);
 
+        RenderHelper.disableStandardItemLighting();
+
         if (enchants == null || enchants.tagCount() == 0)
             return;
 
@@ -63,6 +66,8 @@ public class EnchantIconsRenderer implements IItemRenderer
             mc.fontRenderer.drawString(ident, 0, 0, color, true);
         }
 
-        mc.fontRenderer.drawString(label, 16 - mc.fontRenderer.getStringWidth(label) , 16 - mc.fontRenderer.FONT_HEIGHT, 0xFFDDDDDD, true);
+        mc.fontRenderer.drawString(label, 16 - mc.fontRenderer.getStringWidth(label), 16 - mc.fontRenderer.FONT_HEIGHT, 0xFFDDDDDD, true);
+
+        RenderHelper.enableGUIStandardItemLighting();
     }
 }
