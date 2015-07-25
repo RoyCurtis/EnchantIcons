@@ -17,7 +17,7 @@ buildscript {
 
 apply plugin: 'forge'
 
-modid   = "enchanticons"
+ext.modid   = "enchanticons"
 version = "0.1.0"
 group   = "roycurtis.EnchantIcons"
 
@@ -25,8 +25,9 @@ archivesBaseName = modid
 
 minecraft
 {
-    version = "1.7.10-10.13.0.1180"
-    assetDir = "eclipse/assets"
+    version = "1.8-11.14.1.1333"
+    runDir ="minecraft"
+    mappings = "snapshot_20141130"
 }
 
 jar
@@ -57,4 +58,11 @@ processResources
 	{
         exclude 'mcmod.info'
     }
+}
+
+jar {
+    manifest
+            {
+                attributes("FMLCorePlugin": "roycurtis.EnchantIconsCoremod")
+            }
 }

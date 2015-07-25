@@ -1,11 +1,8 @@
 package roycurtis;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraft.init.Items;
-import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
 
 @Mod(modid = EnchantIcons.MODID, version = EnchantIcons.VERSION)
@@ -17,7 +14,7 @@ public class EnchantIcons
     public static Logger Logger;
     public static EnchantIconsConfiguration config;
 
-    @EventHandler
+    @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
         Logger = event.getModLog();
@@ -26,10 +23,10 @@ public class EnchantIcons
 
     }
 
-    @EventHandler
+    @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        MinecraftForgeClient.registerItemRenderer( Items.enchanted_book, new EnchantIconsRenderer() );
+        //MinecraftForgeClient.registerItemRenderer( Items.enchanted_book, new EnchantIconsRenderer() );
         Logger.info("Loaded version %s", VERSION);
     }
 }

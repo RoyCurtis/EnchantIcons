@@ -1,5 +1,19 @@
 package roycurtis;
 
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.item.ItemStack;
+
+public class EnchantIconsRenderer{
+
+    public void handleRender(FontRenderer fr, ItemStack stack, int xPos, int yPos, String str){
+        String text = "Test";
+        fr.drawString(text, xPos, yPos, 0xFFFFFFFF);
+    }
+
+}
+
+/*package roycurtis;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
@@ -66,3 +80,4 @@ public class EnchantIconsRenderer implements IItemRenderer
         RenderHelper.enableGUIStandardItemLighting();
     }
 }
+*/
