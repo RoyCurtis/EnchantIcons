@@ -2,6 +2,8 @@
 
 **EnchantIcons** is a client-only mod that makes enchanted books easier to find, based on their inner enchantment. It is available for 1.7.10 and 1.6.4.
 
+This is the 1.7.10 branch, `master`.
+
 # Building
 
 ## Requirements
