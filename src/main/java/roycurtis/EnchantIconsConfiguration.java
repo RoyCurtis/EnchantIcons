@@ -1,7 +1,6 @@
 package roycurtis;
 
 import net.minecraftforge.common.config.Configuration;
-import sun.misc.Regexp;
 
 import java.io.File;
 import java.util.HashMap;

@@ -4,32 +4,50 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.init.Items;
 import net.minecraftforge.client.MinecraftForgeClient;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = EnchantIcons.MODID, version = EnchantIcons.VERSION)
+@Mod(
+    modid   = EnchantIcons.MODID,
+    name    = EnchantIcons.MODID,
+    version = EnchantIcons.VERSION,
+
+    acceptableRemoteVersions = "*",
+    acceptableSaveVersions   = ""
+)
 public class EnchantIcons
 {
-    public static final String MODID   = "enchanticons";
+    /** Frozen at 0.0.1 to prevent misleading world save error */
     public static final String VERSION = "0.0.1";
+    public static final String MODID   = "enchanticons";
 
-    public static Logger Logger;
+    public static Logger LOG = LogManager.getFormatterLogger(EnchantIcons.MODID);
     public static EnchantIconsConfiguration config;
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
+    @SideOnly(Side.SERVER)
+    public void serverPreInit(FMLPreInitializationEvent event)
     {
-        Logger = event.getModLog();
-        config = new EnchantIconsConfiguration(event.getSuggestedConfigurationFile());
-
-
+        LOG.error("This mod is intended only for use on clients");
+        LOG.error("Please consider removing this mod from your server installation");
     }
 
     @EventHandler
-    public void init(FMLInitializationEvent event)
+    @SideOnly(Side.CLIENT)
+    public void clientPreInit(FMLPreInitializationEvent event)
+    {
+        config = new EnchantIconsConfiguration(event.getSuggestedConfigurationFile());
+    }
+
+    @EventHandler
+    @SideOnly(Side.CLIENT)
+    public void clientInit(FMLInitializationEvent event)
     {
         MinecraftForgeClient.registerItemRenderer( Items.enchanted_book, new EnchantIconsRenderer() );
-        Logger.info("Loaded version %s", VERSION);
+        LOG.info("Loaded version %s", VERSION);
     }
 }
